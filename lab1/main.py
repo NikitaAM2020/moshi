@@ -29,7 +29,7 @@ def create_board(n):
         column += 1
 
     print(f"Початкова шахова дошка розміром {n}x{n}:")
-    print('\n'.join([". "*value + "Q " + ". "*(n-value-1) for value in chess_board.values()]))
+    print('\n'.join([". " * value + "Q " + ". " * (n - value - 1) for value in chess_board.values()]))
     return chess_board
 
 
@@ -102,9 +102,10 @@ def print_chess_board(board):
     """Вивід нової шахової дошки"""
 
     print(f"\nНова шахова дошка {N}x{N} :")
-    print('\n'.join([". "*value + "Q " + ". "*(N-value-1) for value in board.values()]))
+    print('\n'.join([". " * value + "Q " + ". " * (N - value - 1) for value in board.values()]))
     print("\nОновлені позиції ферзів:")
-    print('\n'.join(["{} в {} стовпці".format(column+1, row+1) for column, row in board.items()]))
+    print('\n'.join(["{} в {} стовпці".format(column + 1, row + 1) for column, row in board.items()]))
+
 
 def main():
     global N
