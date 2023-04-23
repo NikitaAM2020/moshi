@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import AgglomerativeClustering
 
 # Генерація тестової послідовності
-N = np.random.randint(1000, 5001)
+N = np.random.randint(1000, 2001)
 X = np.random.rand(N, 2)
 print(f"Кількість N = ", N)
 
@@ -56,7 +56,8 @@ other_clusters = other_clustering(X, K1)
 # Порівняння результатів кластеризації
 fig, axs = plt.subplots(1, 2, figsize=(12, 6))
 axs[0].set_title('Метод К-середніх')
-axs[1].set_title('Інший метод кластеризації')
+axs[1].set_title('Інший метод кластеризації (ієрархічний)')
+
 for i in range(K):
     cluster = np.array(kmeans_clusters[i])
     axs[0].scatter(cluster[:, 0], cluster[:, 1], label=f'Кластер {i + 1}')
@@ -75,7 +76,7 @@ kmeans_inertia = sum(np.sum((np.array(kmeans_clusters[i]) - np.mean(np.array(kme
 print(f'Функціонал якості (метод К-середніх): {kmeans_inertia}')
 
 other_clusters = other_clustering(X, K1)
-print(f'Кількість кластерів (інший метод): {len(other_clusters)}')
+print(f'Кількість кластерів (ієрархічний метод): {len(other_clusters)}')
 other_inertia = sum(np.sum((np.array(other_clusters[i]) - np.mean(np.array(other_clusters[i]), axis=0)) ** 2)
                     for i in range(len(other_clusters)))
-print(f'Функціонал якості (інший метод): {other_inertia}')
+print(f'Функціонал якості (ієрархічний метод): {other_inertia}')
