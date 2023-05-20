@@ -57,19 +57,19 @@ class TicTackToe:
         elif self.check_tie(board):
             return 0
         if maximizing_player:
-            best_score = -float('inf')  # Change this line
+            best_score = -float('inf')
             for i in range(9):
                 if board[i] == ' ':
-                    board[i] = self.player
+                    board[i] = self.computer
                     score = self.minimax(board, False)
                     board[i] = ' '
-                    best_score = max(score, best_score)  # Change this line
+                    best_score = max(score, best_score)
             return best_score
         else:
             best_score = float('inf')
             for i in range(9):
                 if board[i] == ' ':
-                    board[i] = self.computer
+                    board[i] = self.player
                     score = self.minimax(board, True)
                     board[i] = ' '
                     best_score = min(score, best_score)
