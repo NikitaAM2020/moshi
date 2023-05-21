@@ -8,14 +8,14 @@ class TicTackToe:
         self.computer = 'O'
 
         self.root = Tk()
-        self.root.title("lab6")
-        self.root.geometry('285x320')
+        self.root.title("Лабораторна робота #6 Хрестики-нулики")
+        self.root.geometry('455x540')
 
         self.buttons = []
 
         for i in range(9):
-            self.buttons.append(Button(self.root, text=' ', width=5, height=2, font=('Helvetica', 22),
-                                       command=lambda I=i: self.move(I)))
+            self.buttons.append(Button(self.root, text=' ', width=7, height=3, font=('Courier New', 25, 'bold'),
+                                       command=lambda I=i: self.move(I), bg='#D4F7EE'))
             self.buttons[i].grid(row=i // 3, column=i % 3)
 
         self.root.mainloop()
@@ -88,9 +88,10 @@ class TicTackToe:
     def game_over(self, message):
         for button in self.buttons:
             button.config(state=DISABLED)
-        label = Label(self.root, text=message)  # Change this line
-        label.grid(row=3, column=0, columnspan=3)
-        play_again = Button(self.root, text="Грати знову", command=self.restart)
+        label = Label(self.root, text=message)
+        label.grid(row=3, column=0, columnspan=3, pady=10)
+        play_again = Button(self.root, text="Грати знову", font=('Courier New', 13), bg='#D4F7EE', width=12, height=2, bd=1, relief='solid',
+                            command=self.restart)
         play_again.grid(row=4, column=0, columnspan=3)
 
     def restart(self):
@@ -104,7 +105,8 @@ class TicTackToe:
                 widget.destroy()
         label = Label(self.root, text='')
         label.grid(row=3, column=0, columnspan=3)
-        play_again = Button(self.root, text="Грати знову!", command=self.restart)
+        play_again = Button(self.root, text="Грати знову!", font=('Courier New', 13), bg='#D4F7EE', width=12, height=2, bd=1, relief='solid',
+                            command=self.restart)
         play_again.grid(row=4, column=0, columnspan=3)
 
 
