@@ -88,7 +88,7 @@ class TicTackToe:
     def game_over(self, message):
         for button in self.buttons:
             button.config(state=DISABLED)
-        label = Label(self.root, text=message)
+        label = Label(self.root, font=('Courier New', 13), text=message)
         label.grid(row=3, column=0, columnspan=3, pady=10)
         play_again = Button(self.root, text="Грати знову", font=('Courier New', 13), bg='#D4F7EE', width=12, height=2, bd=1, relief='solid',
                             command=self.restart)
